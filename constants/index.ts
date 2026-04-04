@@ -62,4 +62,4 @@ export const WINDOW_CONTROLS = {
 export const VISIT_PROJECT_LABEL = "View on GitHub";
 export const LIVE_DEMO_LABEL = "Live Demo";
 export const BACK_TO_TOP_LABEL = "Back to top";
-export const RESUME_PATH = "https://drive.google.com/file/d/1PwNPwxt9qT19OeXaGKe_wlZDXzwyXzYp/view?usp=sharing";
+export const RESUME_PATH = "https://drive.google.com/file/d/1mrwKr4A2ZyTDk0_uQKVqlOnj0Co1Et-8/view?usp=sharing";
