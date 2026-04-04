@@ -39,6 +39,7 @@ export interface Achievement {
 export interface ContactLink {
   label: string;
   value: string;
+  /** Use "copy:<text>" to copy text to clipboard instead of navigating */
   href: string;
   icon: string;
 }

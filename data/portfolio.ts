@@ -36,7 +36,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     label: "Email",
-    href: "mailto:chandanimaurya56@gmail.com",
+    href: "https://mail.google.com/mail/?view=cm&to=chandanimaurya56@gmail.com",
     icon: "mail",
   },
 ];
@@ -120,7 +120,7 @@ export const projects: Project[] = [
     points: [
       "Built an ML-powered recommendation engine using facial and audio emotion detection, achieving 74% facial and 85% audio emotion recognition accuracy.",
     ],
-    github: "https://github.com/chandani7021/emotion-music-recommendation",
+    github: "https://github.com/chandani7021/Music-Emotion",
   },
   {
     name: "Stack Overflow Clone",
@@ -182,13 +182,13 @@ export const contactLinks: ContactLink[] = [
   {
     label: "Email",
     value: "chandanimaurya56@gmail.com",
-    href: "mailto:chandanimaurya56@gmail.com",
+    href: "https://mail.google.com/mail/?view=cm&to=chandanimaurya56@gmail.com",
     icon: "mail",
   },
   {
     label: "Phone",
     value: "+91 7021405056",
-    href: "tel:+917021405056",
+    href: "copy:+917021405056",
     icon: "phone",
   },
   {
