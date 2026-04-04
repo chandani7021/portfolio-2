@@ -11,7 +11,7 @@ import Icon from "@/components/ui/Icon";
 
 export default function Experience() {
   return (
-    <section id={SECTION_IDS.experience} className="py-16 px-6">
+    <section id={SECTION_IDS.experience} className="py-12 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <SectionTitle title={SECTION_TITLES.experience} subtitle={SECTION_TITLES.experienceSub} />
 
@@ -26,17 +26,17 @@ export default function Experience() {
             <motion.div
               key={`${exp.company}-${i}`}
               variants={fadeUp}
-              className="flex gap-6"
+              className="flex gap-3 sm:gap-6"
             >
-              {/* ── Left column: dot + connecting line ── */}
-              <div className="flex flex-col items-center shrink-0 pt-[1.35rem]">
+              {/* ── Left column: dot + connecting line (hidden on mobile) ── */}
+              <div className="hidden sm:flex flex-col items-center shrink-0 pt-5">
                 {/* Dot */}
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={VIEWPORT}
                   transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.1 }}
-                  className="relative flex items-center justify-center"
+                  className="relative w-4 h-4 flex items-center justify-center"
                 >
                   {/* Pulse ring */}
                   <motion.span
@@ -47,14 +47,14 @@ export default function Experience() {
                       ease: "easeInOut",
                       delay: i * 0.5,
                     }}
-                    className="absolute w-4 h-4 rounded-full bg-blue-500/40"
+                    className="absolute inset-0 rounded-full bg-blue-500/40"
                   />
-                  <span className="relative z-10 w-3 h-3 rounded-full bg-blue-500 border-2 border-[#111113] shadow-lg shadow-blue-500/60" />
+                  <span className="relative z-10 w-3 h-3 rounded-full bg-blue-500 border-2 border-[#111113] shadow-lg shadow-blue-500/80" />
                 </motion.div>
 
                 {/* Connecting line to next item */}
                 {i < experiences.length - 1 && (
-                  <div className="w-px flex-1 mt-3 bg-blue-500/40" />
+                  <div className="w-0.5 flex-1 mt-2 rounded-full bg-blue-500/50" />
                 )}
               </div>
 
@@ -67,21 +67,21 @@ export default function Experience() {
                     className={i === 0 ? "border-blue-500/20 shadow-xl shadow-blue-500/5" : ""}
                   >
                     {/* Header */}
-                    <div className="flex items-start justify-between gap-4 mb-5">
-                      <div className="flex gap-4">
-                        <div className="w-10 h-10 shrink-0 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                          <Icon name="briefcase" size={18} label="Work experience" />
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
+                      <div className="flex gap-3">
+                        <div className="w-9 h-9 shrink-0 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                          <Icon name="briefcase" size={16} label="Work experience" />
                         </div>
                         <div>
-                          <p className="text-base font-semibold text-white">{exp.title}</p>
-                          <p className="text-sm text-blue-400 mt-0.5 font-medium">{exp.company}</p>
+                          <p className="text-sm font-semibold text-white">{exp.title}</p>
+                          <p className="text-xs text-blue-400 mt-0.5 font-medium">{exp.company}</p>
                         </div>
                       </div>
-                      <div className="text-right shrink-0">
-                        <span className="inline-block px-2.5 py-1 rounded-lg bg-white/5 border border-white/8 text-xs text-white/50">
+                      <div className="text-right">
+                        <span className="inline-block px-2 py-1 rounded-lg bg-white/5 border border-white/8 text-xs text-white/50">
                           {exp.duration}
                         </span>
-                        <p className="text-xs text-white/30 mt-1.5">{exp.location}</p>
+                        <p className="text-xs text-white/30 mt-1">{exp.location}</p>
                       </div>
                     </div>
 

@@ -11,7 +11,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function Skills() {
   return (
-    <section id={SECTION_IDS.skills} className="py-16 px-6">
+    <section id={SECTION_IDS.skills} className="py-12 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VIEWPORT}>
           <SectionTitle title={SECTION_TITLES.skills} subtitle={SECTION_TITLES.skillsSub} />

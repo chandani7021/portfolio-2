@@ -22,7 +22,7 @@ const ACCENT_COLORS = [
 
 export default function Projects() {
   return (
-    <section id={SECTION_IDS.projects} className="py-16 px-6">
+    <section id={SECTION_IDS.projects} className="py-12 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <SectionTitle title={SECTION_TITLES.projects} subtitle={SECTION_TITLES.projectsSub} />
 

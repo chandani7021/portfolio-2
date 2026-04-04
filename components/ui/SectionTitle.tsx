@@ -18,7 +18,7 @@ export default function SectionTitle({ title, subtitle, className = "" }: Sectio
       viewport={VIEWPORT}
       className={`mb-10 ${className}`}
     >
-      <h2 className="text-3xl font-bold text-white tracking-tight">{title}</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{title}</h2>
       {subtitle && (
         <p className="mt-1.5 text-sm text-white/40 tracking-wide">{subtitle}</p>
       )}

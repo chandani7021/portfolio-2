@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section
       id={SECTION_IDS.home}
-      className="relative min-h-screen flex items-center px-6 overflow-hidden pt-24 pb-12"
+      className="relative min-h-screen flex items-center px-4 sm:px-6 overflow-hidden pt-20 sm:pt-24 pb-12"
     >
       {/* Ambient glows */}
       <div className="absolute inset-0 pointer-events-none">
@@ -45,7 +45,7 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* ── Left: text ── */}
           <motion.div
@@ -67,7 +67,7 @@ export default function Hero() {
 
             <motion.h1
               variants={fadeUp}
-              className="text-5xl sm:text-6xl font-extrabold tracking-tight mb-5 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 leading-tight"
             >
               <span className="text-white">{HERO.name.split(" ")[0]}</span>
               <br />
@@ -125,7 +125,7 @@ export default function Hero() {
             variants={slideInRight}
             initial="hidden"
             animate="visible"
-            className="hidden lg:flex flex-col items-center gap-6"
+            className="flex flex-col items-center gap-6"
           >
             {/* Photo with corner brackets */}
             <div className="relative">
@@ -153,7 +153,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="relative w-72 h-88 rounded-2xl overflow-hidden border border-white/8"
+                className="relative w-56 h-64 sm:w-72 sm:h-88 rounded-2xl overflow-hidden border border-white/8"
               >
                 <Image
                   src="/myImage.svg"
@@ -168,7 +168,7 @@ export default function Hero() {
             </div>
 
             {/* Skill strip — auto-scrolling marquee */}
-            <div className="w-72 overflow-hidden rounded-xl border border-white/6 bg-white/[0.02] py-2.5">
+            <div className="w-56 sm:w-72 overflow-hidden rounded-xl border border-white/6 bg-white/2 py-2.5">
               <motion.div
                 animate={{ x: ["0%", "-50%"] }}
                 transition={{ duration: 14, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}

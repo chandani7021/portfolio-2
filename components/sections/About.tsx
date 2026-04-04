@@ -11,7 +11,7 @@ import Icon from "@/components/ui/Icon";
 
 export default function About() {
   return (
-    <section id={SECTION_IDS.about} className="py-16 px-6">
+    <section id={SECTION_IDS.about} className="py-12 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <SectionTitle title={SECTION_TITLES.about} subtitle={SECTION_TITLES.aboutSub} />
 
