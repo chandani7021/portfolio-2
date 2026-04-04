@@ -45,7 +45,7 @@ export const ABOUT = {
   ],
   stats: [
     { label: "Years Experience", value: "2+" },
-    { label: "Projects Shipped", value: "10+" },
+    { label: "Projects Shipped", value: "6+" },
     { label: "API Optimisation", value: "~40%" },
     { label: "CGPA", value: "9.4" },
   ],
@@ -62,4 +62,4 @@ export const WINDOW_CONTROLS = {
 export const VISIT_PROJECT_LABEL = "View on GitHub";
 export const LIVE_DEMO_LABEL = "Live Demo";
 export const BACK_TO_TOP_LABEL = "Back to top";
-export const RESUME_PATH = "/ChandaniMouryaResumeSDE2.pdf";
+export const RESUME_PATH = "https://drive.google.com/file/d/1PwNPwxt9qT19OeXaGKe_wlZDXzwyXzYp/view?usp=sharing";

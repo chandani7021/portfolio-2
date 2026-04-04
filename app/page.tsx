@@ -6,10 +6,12 @@ import Skills from "@/components/sections/Skills";
 import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
+import CursorGlow from "@/components/ui/CursorGlow";
 
 export default function Home() {
   return (
     <>
+      <CursorGlow />
       <Navbar />
       <main>
         <Hero />

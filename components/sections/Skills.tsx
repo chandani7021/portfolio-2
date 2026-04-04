@@ -5,19 +5,15 @@ import { SECTION_IDS, SECTION_TITLES } from "@/constants";
 import { skills } from "@/data/portfolio";
 import { accentClass } from "@/utils";
 import { fadeUp, staggerContainer, staggerFast, scaleIn, VIEWPORT } from "@/utils/animations";
+import TiltCard from "@/components/ui/TiltCard";
 import MacWindow from "@/components/ui/MacWindow";
 import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function Skills() {
   return (
-    <section id={SECTION_IDS.skills} className="py-24 px-6">
+    <section id={SECTION_IDS.skills} className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-        >
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VIEWPORT}>
           <SectionTitle title={SECTION_TITLES.skills} subtitle={SECTION_TITLES.skillsSub} />
         </motion.div>
 
@@ -30,15 +26,10 @@ export default function Skills() {
         >
           {skills.map((skill, i) => (
             <motion.div key={skill.category} variants={scaleIn}>
-              <motion.div
-                whileHover={{ y: -4, scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <MacWindow title={skill.category.toLowerCase().replace(/\s/g, "-")}>
+              <TiltCard intensity={5} className="h-full">
+                <MacWindow title={skill.category.toLowerCase().replace(/\s/g, "-")} className="h-full">
                   <div>
-                    <p
-                      className={`text-xs font-semibold uppercase tracking-wider mb-4 ${accentClass(i).split(" ")[0]}`}
-                    >
+                    <p className={`text-xs font-semibold uppercase tracking-wider mb-4 ${accentClass(i).split(" ")[0]}`}>
                       {skill.category}
                     </p>
                     <motion.div
@@ -52,7 +43,8 @@ export default function Skills() {
                         <motion.span
                           key={item}
                           variants={fadeUp}
-                          whileHover={{ scale: 1.08, y: -1 }}
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 18 }}
                           className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium border cursor-default ${accentClass(i)}`}
                         >
                           {item}
@@ -61,7 +53,7 @@ export default function Skills() {
                     </motion.div>
                   </div>
                 </MacWindow>
-              </motion.div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

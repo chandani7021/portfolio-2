@@ -6,20 +6,14 @@ import { achievements, education } from "@/data/portfolio";
 import { fadeUp, slideInLeft, slideInRight, VIEWPORT } from "@/utils/animations";
 import MacWindow from "@/components/ui/MacWindow";
 import SectionTitle from "@/components/ui/SectionTitle";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import Icon from "@/components/ui/Icon";
 
 export default function About() {
   return (
-    <section id={SECTION_IDS.about} className="py-24 px-6">
+    <section id={SECTION_IDS.about} className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-        >
-          <SectionTitle title={SECTION_TITLES.about} subtitle={SECTION_TITLES.aboutSub} />
-        </motion.div>
+        <SectionTitle title={SECTION_TITLES.about} subtitle={SECTION_TITLES.aboutSub} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Bio */}
@@ -49,12 +43,15 @@ export default function About() {
             whileInView="visible"
             viewport={VIEWPORT}
           >
+            {/* Animated stats */}
             <MacWindow title="stats.json" accentColor="bg-purple-500/5">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-5">
                 {ABOUT.stats.map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <p className="text-2xl font-bold text-white">{stat.value}</p>
-                    <p className="text-xs text-white/40 mt-0.5">{stat.label}</p>
+                    <p className="text-2xl font-bold text-white">
+                      <AnimatedCounter value={stat.value} />
+                    </p>
+                    <p className="text-xs text-white/40 mt-0.5 leading-tight">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -63,7 +60,7 @@ export default function About() {
             <MacWindow title="education" accentColor="bg-emerald-500/5">
               <div className="flex gap-3">
                 <div className="w-8 h-8 shrink-0 flex items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400">
-                  <Icon name="graduation" size={16} />
+                  <Icon name="graduation" size={16} label="Education" />
                 </div>
                 <div>
                   {education.map((edu) => (
@@ -82,17 +79,12 @@ export default function About() {
         </div>
 
         {/* Achievement */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-        >
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VIEWPORT}>
           {achievements.map((a) => (
             <MacWindow key={a.title} title="achievement" className="mt-6" accentColor="bg-amber-500/5">
               <div className="flex gap-4">
                 <div className="w-10 h-10 shrink-0 flex items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
-                  <Icon name="trophy" size={20} />
+                  <Icon name="trophy" size={20} label="Achievement" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-white">{a.title}</p>

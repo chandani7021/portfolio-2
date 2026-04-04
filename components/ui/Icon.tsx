@@ -6,9 +6,11 @@ interface IconProps {
   name: string;
   className?: string;
   size?: number;
+  /** Accessible label — omit for decorative icons (aria-hidden will be set) */
+  label?: string;
 }
 
-export default function Icon({ name, className = "", size = 20 }: IconProps) {
+export default function Icon({ name, className = "", size = 20, label }: IconProps) {
   const path = ICON_PATHS[name];
   if (!path) return null;
 
@@ -24,7 +26,11 @@ export default function Icon({ name, className = "", size = 20 }: IconProps) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      aria-hidden={label ? undefined : "true"}
+      aria-label={label}
+      role={label ? "img" : undefined}
     >
+      {label && <title>{label}</title>}
       <path d={path} />
     </svg>
   );

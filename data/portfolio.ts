@@ -102,7 +102,8 @@ export const projects: Project[] = [
     points: [
       "Built a document-to-training pipeline using Gemini API that auto-generates structured modules, quizzes, and final evaluations — reducing manual content creation effort by ~70%.",
     ],
-    github: "https://github.com/chandani7021/ai-training-system",
+    github: "https://github.com/chandani7021/ai-training",
+     live: "https://ai-training-opal.vercel.app/login",
   },
   {
     name: "AI Interview Preparation Platform",
@@ -110,8 +111,8 @@ export const projects: Project[] = [
     points: [
       "Developed a voice-based AI interview simulator with real-time conversation, automated feedback, and scoring using Vapi and Gemini API.",
     ],
-    github: "https://github.com/chandani7021/ai-interview-prep",
-    live: "https://ai-interview-prep.vercel.app",
+    github: "https://github.com/chandani7021/ai-prep",
+    // live: "https://ai-interview-prep.vercel.app",
   },
   {
     name: "Emotion-Based Music Recommendation",
@@ -128,7 +129,7 @@ export const projects: Project[] = [
       "Full-stack Q&A platform with user authentication, question/answer capabilities, and profile management — closely replicating core StackOverflow features.",
     ],
     github: "https://github.com/chandani7021/stackoverflow_Clone",
-    live: "https://stack-overflow-clone-by-chandani.netlify.app/",
+    // live: "https://stack-overflow-clone-by-chandani.netlify.app/",
   },
   {
     name: "Sentiment Analysis Website",

@@ -10,7 +10,7 @@ import Icon from "@/components/ui/Icon";
 
 export default function Contact() {
   return (
-    <section id={SECTION_IDS.contact} className="py-24 px-6">
+    <section id={SECTION_IDS.contact} className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div
           variants={fadeUp}
