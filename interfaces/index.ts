@@ -13,6 +13,7 @@ export interface Project {
   points: string[];
   github?: string;
   live?: string;
+  featured?: boolean;
 }
 
 export interface Skill {

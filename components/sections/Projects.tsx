@@ -26,92 +26,146 @@ export default function Projects() {
       <div className="max-w-5xl mx-auto">
         <SectionTitle title={SECTION_TITLES.projects} subtitle={SECTION_TITLES.projectsSub} />
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {projects.map((project, i) => {
-            const accent = ACCENT_COLORS[i % ACCENT_COLORS.length];
-            return (
-              <motion.div key={project.name} variants={scaleIn}>
-                <TiltCard className="h-full" intensity={6}>
-                  <MacWindow
-                    title={`${project.name.toLowerCase().split(" ").slice(0, 2).join("-")}.ts`}
-                    accentColor={accent.card}
-                    className={`h-full ${accent.border}`}
-                  >
-                    <div className="flex flex-col h-full">
-                      {/* Project number watermark */}
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="text-sm font-semibold text-white leading-snug flex-1">
-                          {project.name}
-                        </h3>
-                        <span className={`text-4xl font-black ${accent.num} leading-none ml-2 select-none`}>
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-
-                      <ul className="space-y-1.5 mb-4 flex-1">
-                        {project.points.map((point) => (
-                          <li
-                            key={point.slice(0, 40)}
-                            className="flex gap-2 text-xs text-white/55 leading-relaxed"
-                          >
-                            <span className={`mt-1.5 w-1 h-1 shrink-0 rounded-full ${accent.dot}`} />
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {project.tech.map((t) => (
-                          <Badge key={t} label={t} />
-                        ))}
-                      </div>
-
-                      {/* Links */}
-                      {(project.github || project.live) && (
-                        <div className="flex items-center gap-2 pt-3 border-t border-white/6">
-                          {project.github && (
-                            <motion.a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`View ${project.name} on GitHub`}
-                              whileHover={{ scale: 1.05, x: 2 }}
-                              whileTap={{ scale: 0.95 }}
-                              className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white transition-colors px-2 py-1 rounded-lg hover:bg-white/8"
-                            >
-                              <Icon name="github" size={13} label="GitHub" />
-                              {VISIT_PROJECT_LABEL}
-                            </motion.a>
-                          )}
-                          {project.live && (
-                            <motion.a
-                              href={project.live}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`View live demo of ${project.name}`}
-                              whileHover={{ scale: 1.05, x: 2 }}
-                              whileTap={{ scale: 0.95 }}
-                              className="flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 transition-colors px-2 py-1 rounded-lg hover:bg-blue-500/10"
-                            >
-                              <Icon name="externalLink" size={13} label="Live demo" />
-                              {LIVE_DEMO_LABEL}
-                            </motion.a>
-                          )}
+        <div className="space-y-16">
+          {/* Featured Projects */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+          >
+            {projects.filter(p => p.featured).map((project, i) => {
+              const accent = ACCENT_COLORS[i % ACCENT_COLORS.length];
+              return (
+                <motion.div key={project.name} variants={scaleIn}>
+                  <TiltCard className="h-full" intensity={6}>
+                    <MacWindow
+                      title={`${project.name.toLowerCase().split(" ").slice(0, 2).join("-")}.ts`}
+                      accentColor={accent.card}
+                      className={`h-full ${accent.border}`}
+                    >
+                      <div className="flex flex-col h-full">
+                        <div className="flex items-start justify-between mb-4">
+                          <h3 className="text-lg font-bold text-white leading-snug flex-1">
+                            {project.name}
+                          </h3>
+                          <span className={`text-5xl font-black ${accent.num} leading-none ml-2 select-none`}>
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
                         </div>
+
+                        <ul className="space-y-3 mb-6 flex-1">
+                          {project.points.map((point, idx) => (
+                            <li
+                              key={point.slice(0, 40)}
+                              className={`flex gap-3 text-sm leading-relaxed ${idx === 0 ? "text-blue-300/90 font-medium" : "text-white/55"}`}
+                            >
+                              <span className={`mt-2 w-1.5 h-1.5 shrink-0 rounded-full ${accent.dot}`} />
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {project.tech.map((t) => (
+                            <Badge key={t} label={t} />
+                          ))}
+                        </div>
+
+                        {(project.github || project.live) && (
+                          <div className="flex items-center gap-4 pt-4 border-t border-white/6">
+                            {project.github && (
+                              <motion.a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05, x: 2 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="flex items-center gap-2 text-xs text-white/50 hover:text-white transition-colors"
+                              >
+                                <Icon name="github" size={14} label="GitHub" />
+                                {VISIT_PROJECT_LABEL}
+                              </motion.a>
+                            )}
+                            {project.live && (
+                              <motion.a
+                                href={project.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05, x: 2 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="flex items-center gap-2 text-xs text-blue-400 hover:text-blue-300 transition-colors"
+                              >
+                                <Icon name="externalLink" size={14} label="Live demo" />
+                                {LIVE_DEMO_LABEL}
+                              </motion.a>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </MacWindow>
+                  </TiltCard>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* Other Projects */}
+          {projects.some(p => !p.featured) && (
+            <div className="pt-8">
+              <h4 className="text-white/30 text-xs font-bold uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
+                <span className="h-px bg-white/10 flex-1" />
+                Other Projects
+                <span className="h-px bg-white/10 flex-1" />
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {projects.filter(p => !p.featured).map((project) => (
+                  <motion.div
+                    key={project.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="group relative p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300"
+                  >
+                    <div className="flex justify-between items-start mb-3">
+                      <h5 className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors">
+                        {project.name}
+                      </h5>
+                      <div className="flex gap-2">
+                        {project.github && (
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/60 transition-colors">
+                            <Icon name="github" size={14} label="GitHub" />
+                          </a>
+                        )}
+                        {project.live && (
+                          <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-blue-400 transition-colors">
+                            <Icon name="externalLink" size={14} label="Live" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                    <p className="text-xs text-white/40 leading-relaxed mb-4 line-clamp-2">
+                      {project.points[0]}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mt-auto">
+                      {project.tech.slice(0, 3).map(t => (
+                        <span key={t} className="text-[10px] text-white/20 font-medium px-1.5 py-0.5 rounded-md border border-white/5">
+                          {t}
+                        </span>
+                      ))}
+                      {project.tech.length > 3 && (
+                        <span className="text-[10px] text-white/10 font-medium px-1.5 py-0.5">
+                          +{project.tech.length - 3}
+                        </span>
                       )}
                     </div>
-                  </MacWindow>
-                </TiltCard>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

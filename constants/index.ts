@@ -31,6 +31,7 @@ export const HERO = {
   greeting: "Hi there, I'm",
   name: "Chandani Mourya",
   tagline: "Full Stack Software Engineer",
+  targetRole: "Open to Full Stack · Frontend · React Native roles — Remote / Pune",
   subTagline:
     "I build fast, scalable, and intelligent web & mobile products — from data-rich dashboards to AI-powered pipelines. Currently exploring the intersection of LLMs and real-world product engineering.",
   resumeLabel: "Download Resume",
@@ -45,7 +46,7 @@ export const ABOUT = {
   ],
   stats: [
     { label: "Years Experience", value: "2+" },
-    { label: "Projects Shipped", value: "6+" },
+    { label: "Projects Shipped", value: "5+" },
     { label: "API Optimisation", value: "~40%" },
     { label: "CGPA", value: "9.4" },
   ],
@@ -62,4 +63,4 @@ export const WINDOW_CONTROLS = {
 export const VISIT_PROJECT_LABEL = "View on GitHub";
 export const LIVE_DEMO_LABEL = "Live Demo";
 export const BACK_TO_TOP_LABEL = "Back to top";
-export const RESUME_PATH = "https://drive.google.com/file/d/1mrwKr4A2ZyTDk0_uQKVqlOnj0Co1Et-8/view?usp=sharing";
+export const RESUME_PATH = "/resume.pdf";

@@ -54,11 +54,16 @@ export default function Hero() {
             animate="visible"
             className="flex flex-col"
           >
-            <motion.div variants={fadeUp} className="flex mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/8 text-blue-300 text-sm font-medium">
+            <motion.div variants={fadeUp} className="flex flex-col gap-3 mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/8 text-blue-300 text-sm font-medium w-fit">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                 {HERO.tagline}
               </span>
+              {HERO.targetRole && (
+                <span className="text-blue-400/80 text-sm font-medium px-1">
+                  {HERO.targetRole}
+                </span>
+              )}
             </motion.div>
 
             <motion.p variants={fadeUp} className="text-white/40 text-base mb-2 font-light tracking-wide">

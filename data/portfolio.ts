@@ -44,15 +44,15 @@ export const socialLinks: SocialLink[] = [
 export const skills: Skill[] = [
   {
     category: "Languages",
-    items: ["JavaScript (ES6+)", "Python", "SQL"],
+    items: ["TypeScript", "JavaScript (ES6+)", "Python", "SQL"],
   },
   {
     category: "Frontend",
-    items: ["React.js", "Next.js", "React Native", "D3.js", "HTML5", "CSS3"],
+    items: ["React.js", "Next.js", "React Native", "Redux", "Tailwind CSS", "D3.js", "HTML5", "CSS3"],
   },
   {
     category: "Backend",
-    items: ["FastAPI", "Django", "Node.js", "Express.js", "REST APIs"],
+    items: ["FastAPI", "Django", "Node.js", "Express.js", "REST APIs", "JWT", "RBAC", "Microservices"],
   },
   {
     category: "Databases",
@@ -60,7 +60,7 @@ export const skills: Skill[] = [
   },
   {
     category: "DevOps & Tools",
-    items: ["Docker", "Git", "Vercel", "Render"],
+    items: ["Docker", "Git", "CI/CD", "AWS", "Vercel", "Render", "Agile"],
   },
   {
     category: "AI / ML",
@@ -97,18 +97,32 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    name: "District Clone",
+    tech: ["React Native", "Expo", "React Navigation"],
+    featured: true,
+    points: [
+      "Created for mobile users seeking a high-performance discovery experience. Implements complex UI patterns including smooth scroll animations, bottom-sheet interactions, and gesture-based navigation.",
+      "Pixel-perfect React Native clone featuring guest screens, event discovery, booking flows, and profile management — optimized for production-grade smoothness and redirection logic.",
+    ],
+    github: "https://github.com/chandani7021/district-event-clone",
+  },
+  {
     name: "AI Training System",
     tech: ["React", "FastAPI", "PostgreSQL", "Gemini API"],
+    featured: true,
     points: [
+      "Built for L&D teams who were spending hours manually creating training content. The pipeline takes any document and produces ready-to-use modules in minutes.",
       "Built a document-to-training pipeline using Gemini API that auto-generates structured modules, quizzes, and final evaluations — reducing manual content creation effort by ~70%.",
     ],
     github: "https://github.com/chandani7021/ai-training",
-     live: "https://ai-training-opal.vercel.app/login",
+    live: "https://ai-training-opal.vercel.app/login",
   },
   {
     name: "AI Interview Preparation Platform",
     tech: ["Next.js", "Firebase", "Vapi", "Gemini API"],
+    featured: true,
     points: [
+      "Developed for job seekers to practice high-pressure interviews with realistic voice AI. Provides instant, actionable feedback on communication and technical accuracy.",
       "Developed a voice-based AI interview simulator with real-time conversation, automated feedback, and scoring using Vapi and Gemini API.",
     ],
     github: "https://github.com/chandani7021/ai-prep",
@@ -117,44 +131,36 @@ export const projects: Project[] = [
   {
     name: "Emotion-Based Music Recommendation",
     tech: ["Python", "Flask", "React.js", "MongoDB"],
+    featured: true,
     points: [
+      "Designed for music lovers who want a soundtrack that matches their mood. Uses facial recognition and audio analysis to eliminate the need for manual playlist searching.",
       "Built an ML-powered recommendation engine using facial and audio emotion detection, achieving 74% facial and 85% audio emotion recognition accuracy.",
     ],
     github: "https://github.com/chandani7021/Music-Emotion",
   },
   {
+    name: "Stock Price Prediction",
+    tech: ["Python", "LSTM", "Machine Learning"],
+    featured: true,
+    points: [
+      "Created for retail investors to identify market patterns using historical data. Leverages LSTM models to forecast price movements and visualize sector-specific trends.",
+      "Uses LSTM algorithms to predict opening stock prices by analysing live datasets, uncovering sector-specific trends and aiding market analysis.",
+    ],
+    github: "https://github.com/chandani7021/Stock-Price-Prediction",
+  },
+/*
+  {
     name: "Stack Overflow Clone",
     tech: ["React.js", "Redux", "Node.js", "Express.js"],
+    featured: false,
     points: [
+      "A collaborative hub for developers to share knowledge and solve problems. Features a robust gamification and reputation system to encourage high-quality contributions.",
       "Full-stack Q&A platform with user authentication, question/answer capabilities, and profile management — closely replicating core StackOverflow features.",
     ],
     github: "https://github.com/chandani7021/stackoverflow_Clone",
     // live: "https://stack-overflow-clone-by-chandani.netlify.app/",
   },
-  {
-    name: "Sentiment Analysis Website",
-    tech: ["Python", "React", "Twitter API"],
-    points: [
-      "Analyses tweet sentiments and emotions with user-defined tweet counts, presenting results visually through pie charts for easy comprehension.",
-    ],
-    github: "https://github.com/chandani7021/Twitter-Sentiment-Analysis",
-  },
-  {
-    name: "Movie Recommendation",
-    tech: ["React"],
-    points: [
-      "Search-driven movie recommendation frontend — surfaces title, type, release year, and poster for any movie using a clean, intuitive interface.",
-    ],
-    github: "https://github.com/chandani7021/Movie-Recommendation",
-  },
-  {
-    name: "Stock Price Prediction",
-    tech: ["Python", "LSTM", "Machine Learning"],
-    points: [
-      "Uses LSTM algorithms to predict opening stock prices by analysing live datasets, uncovering sector-specific trends and aiding market analysis.",
-    ],
-    github: "https://github.com/chandani7021/Stock-Price-Prediction",
-  },
+*/
 ];
 
 export const education: Education[] = [

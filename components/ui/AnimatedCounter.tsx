@@ -16,18 +16,15 @@ function parseValue(raw: string): { number: number; prefix: string; suffix: stri
 
 export default function AnimatedCounter({ value, className = "" }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: false, margin: "-60px" });
-  const [display, setDisplay] = useState("0");
   const { number, prefix, suffix } = parseValue(value);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const [display, setDisplay] = useState("0");
 
   useEffect(() => {
-    if (!isInView) {
-      setDisplay("0");
-      return;
-    }
+    if (!isInView) return;
 
-    const duration = 1400;
-    const steps = 50;
+    const duration = 1200;
+    const steps = 60;
     const interval = duration / steps;
     let step = 0;
 
@@ -36,8 +33,17 @@ export default function AnimatedCounter({ value, className = "" }: AnimatedCount
       const progress = step / steps;
       const eased = 1 - (1 - progress) ** 3;
       const current = eased * number;
-      setDisplay(Number.isInteger(number) ? String(Math.round(current)) : current.toFixed(1));
-      if (step >= steps) clearInterval(timer);
+      
+      const formatted = Number.isInteger(number) 
+        ? String(Math.round(current)) 
+        : current.toFixed(1);
+        
+      setDisplay(formatted);
+      
+      if (step >= steps) {
+        setDisplay(Number.isInteger(number) ? String(number) : number.toFixed(1));
+        clearInterval(timer);
+      }
     }, interval);
 
     return () => clearInterval(timer);
