@@ -29,7 +29,7 @@ export default function Skills() {
               <TiltCard intensity={5} className="h-full">
                 <MacWindow title={skill.category.toLowerCase().replace(/\s/g, "-")} className="h-full">
                   <div>
-                    <p className={`text-xs font-semibold uppercase tracking-wider mb-4 ${accentClass(i).split(" ")[0]}`}>
+                    <p className={`text-sm font-semibold uppercase tracking-wider mb-4 ${accentClass(i).split(" ")[0]}`}>
                       {skill.category}
                     </p>
                     <motion.div
@@ -45,7 +45,7 @@ export default function Skills() {
                           variants={fadeUp}
                           whileHover={{ scale: 1.1, y: -2 }}
                           transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                          className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium border cursor-default ${accentClass(i)}`}
+                          className={`inline-flex items-center px-2.5 py-1 rounded-lg text-sm font-medium border cursor-default ${accentClass(i)}`}
                         >
                           {item}
                         </motion.span>

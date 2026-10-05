@@ -27,7 +27,7 @@ export default function About() {
             <MacWindow title="about.md" accentColor="bg-blue-500/5">
               <div className="space-y-4">
                 {ABOUT.paragraphs.map((para) => (
-                  <p key={para.slice(0, 30)} className="text-white/60 text-sm leading-relaxed">
+                  <p key={para.slice(0, 30)} className="text-white/75 text-base leading-relaxed">
                     {para}
                   </p>
                 ))}
@@ -51,7 +51,7 @@ export default function About() {
                     <p className="text-2xl font-bold text-white">
                       <AnimatedCounter value={stat.value} />
                     </p>
-                    <p className="text-xs text-white/40 mt-0.5 leading-tight">{stat.label}</p>
+                    <p className="text-sm text-white/55 mt-0.5 leading-tight">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -65,9 +65,9 @@ export default function About() {
                 <div>
                   {education.map((edu) => (
                     <div key={edu.degree}>
-                      <p className="text-xs font-semibold text-white leading-tight">{edu.degree}</p>
-                      <p className="text-xs text-white/40 mt-0.5">{edu.institution}</p>
-                      <p className="text-xs text-white/30 mt-0.5">
+                      <p className="text-sm font-semibold text-white leading-tight">{edu.degree}</p>
+                      <p className="text-sm text-white/60 mt-0.5">{edu.institution}</p>
+                      <p className="text-sm text-white/50 mt-0.5">
                         {edu.duration} · CGPA {edu.cgpa}
                       </p>
                     </div>
@@ -87,11 +87,11 @@ export default function About() {
                   <Icon name="trophy" size={20} label="Achievement" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">{a.title}</p>
-                  <p className="text-xs text-white/40 mt-0.5">
+                  <p className="text-base font-semibold text-white">{a.title}</p>
+                  <p className="text-sm text-white/55 mt-0.5">
                     {a.organization} · {a.date} · {a.location}
                   </p>
-                  <p className="text-xs text-white/50 mt-2 leading-relaxed">{a.description}</p>
+                  <p className="text-sm sm:text-base text-white/70 mt-2 leading-relaxed">{a.description}</p>
                 </div>
               </div>
             </MacWindow>

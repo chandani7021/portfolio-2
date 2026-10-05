@@ -38,7 +38,7 @@ function ContactCard({ link }: { link: ContactLink }) {
           <Icon name={isCopy && copied ? "check" : link.icon} size={18} label={link.label} />
         </motion.div>
         <div>
-          <p className="text-xs font-medium text-white/40 uppercase tracking-wider">
+          <p className="text-sm font-medium text-white/55 uppercase tracking-wider">
             {link.label}
           </p>
           <AnimatePresence mode="wait">
@@ -48,7 +48,7 @@ function ContactCard({ link }: { link: ContactLink }) {
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
-                className="text-xs text-emerald-400 mt-1 font-medium"
+                className="text-sm text-emerald-400 mt-1 font-medium"
               >
                 Copied!
               </motion.p>
@@ -58,14 +58,14 @@ function ContactCard({ link }: { link: ContactLink }) {
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
-                className="text-xs text-white/70 mt-1 break-all leading-relaxed"
+                className="text-[13px] sm:text-sm lg:text-[13px] text-white/80 mt-1 whitespace-nowrap tracking-tight leading-relaxed"
               >
                 {link.value}
               </motion.p>
             )}
           </AnimatePresence>
           {isCopy && (
-            <p className="text-[10px] text-white/25 mt-1">click to copy</p>
+            <p className="text-xs text-white/45 mt-1">click to copy</p>
           )}
         </div>
       </div>
@@ -91,7 +91,7 @@ function ContactCard({ link }: { link: ContactLink }) {
   return (
     <motion.a
       href={link.href}
-      target="_blank"
+      target={link.href.startsWith("http") ? "_blank" : undefined}
       rel="noopener noreferrer"
       variants={scaleIn}
       whileHover={{ y: -5, scale: 1.02 }}

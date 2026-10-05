@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 
 interface TiltCardProps {
   children: React.ReactNode;
@@ -11,6 +11,7 @@ interface TiltCardProps {
 
 export default function TiltCard({ children, className = "", intensity = 8 }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -21,7 +22,7 @@ export default function TiltCard({ children, className = "", intensity = 8 }: Ti
   const glowY = useTransform(y, [-0.5, 0.5], [0, 100]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    if (!ref.current || reduceMotion) return;
     const rect = ref.current.getBoundingClientRect();
     x.set((e.clientX - rect.left) / rect.width - 0.5);
     y.set((e.clientY - rect.top) / rect.height - 0.5);

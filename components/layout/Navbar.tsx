@@ -120,7 +120,7 @@ export default function Navbar() {
                 className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap ${
                   isActive
                     ? "bg-blue-500/20 text-blue-400"
-                    : "text-white/50 hover:text-white hover:bg-white/8"
+                    : "text-white/65 hover:text-white hover:bg-white/8"
                 }`}
               >
                 {item.label}

@@ -75,4 +75,4 @@ export const heroStagger: Variants = {
 };
 
 /** Shared viewport config for scroll-triggered animations */
-export const VIEWPORT = { once: false, margin: "-80px" };
+export const VIEWPORT = { once: true, margin: "-80px" };

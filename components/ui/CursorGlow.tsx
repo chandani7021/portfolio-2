@@ -22,7 +22,7 @@ export default function CursorGlow() {
     <div
       ref={ref}
       aria-hidden="true"
-      className="pointer-events-none fixed z-0 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full"
+      className="hidden md:block motion-reduce:hidden pointer-events-none fixed z-0 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full"
       style={{
         background:
           "radial-gradient(circle, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0.06) 35%, transparent 65%)",

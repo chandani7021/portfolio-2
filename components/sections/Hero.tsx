@@ -10,7 +10,7 @@ import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import Tooltip from "@/components/ui/Tooltip";
 
-const SKILL_STRIP = ["React", "Next.js", "FastAPI", "Django", "PostgreSQL", "React Native", "D3.js", "Gemini API"];
+const SKILL_STRIP = ["TypeScript", "React", "Next.js", "Node.js", "FastAPI", "PostgreSQL", "React Native", "LLMs"];
 
 export default function Hero() {
   return (
@@ -56,7 +56,7 @@ export default function Hero() {
           >
             <motion.div variants={fadeUp} className="flex flex-col gap-3 mb-6">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/8 text-blue-300 text-sm font-medium w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 motion-safe:animate-pulse" />
                 {HERO.tagline}
               </span>
               {HERO.targetRole && (
@@ -66,7 +66,7 @@ export default function Hero() {
               )}
             </motion.div>
 
-            <motion.p variants={fadeUp} className="text-white/40 text-base mb-2 font-light tracking-wide">
+            <motion.p variants={fadeUp} className="text-white/55 text-base mb-2 font-light tracking-wide">
               {HERO.greeting}
             </motion.p>
 
@@ -81,7 +81,7 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-white/50 text-base leading-relaxed max-w-md mb-8">
+            <motion.p variants={fadeUp} className="text-white/70 text-base sm:text-lg leading-relaxed max-w-md mb-8">
               {HERO.subTagline}
             </motion.p>
 
@@ -95,13 +95,13 @@ export default function Hero() {
                 <Tooltip key={link.label} label={link.label}>
                   <motion.a
                     href={link.href}
-                    target="_blank"
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
                     aria-label={link.label}
                     whileHover={{ scale: 1.15, y: -3 }}
                     whileTap={{ scale: 0.92 }}
                     transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                    className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/50 hover:text-white hover:border-white/20 hover:bg-white/10 transition-colors duration-200"
+                    className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/65 hover:text-white hover:border-white/20 hover:bg-white/10 transition-colors duration-200"
                   >
                     <Icon name={link.icon} size={16} label={link.label} />
                   </motion.a>
@@ -113,7 +113,7 @@ export default function Hero() {
               variants={fadeUp}
               type="button"
               onClick={() => scrollToSection(SECTION_IDS.about)}
-              className="mt-12 flex items-center gap-2 text-white/20 hover:text-white/50 transition-colors cursor-pointer w-fit"
+              className="mt-12 flex items-center gap-2 text-white/40 hover:text-white/70 transition-colors cursor-pointer w-fit"
             >
               <span className="text-xs tracking-widest uppercase">Scroll down</span>
               <motion.span
@@ -161,9 +161,10 @@ export default function Hero() {
                 className="relative w-56 h-64 sm:w-72 sm:h-88 rounded-2xl overflow-hidden border border-white/8"
               >
                 <Image
-                  src="/myImage.svg"
+                  src="/myImage.webp"
                   alt="Chandani Mourya"
                   fill
+                  sizes="(min-width: 640px) 288px, 224px"
                   className="object-cover object-top scale-80"
                   priority
                 />
@@ -182,7 +183,7 @@ export default function Hero() {
                 {[...SKILL_STRIP.map((skill) => ({ skill, id: `a-${skill}` })), ...SKILL_STRIP.map((skill) => ({ skill, id: `b-${skill}` }))].map(({ skill, id }) => (
                   <span
                     key={id}
-                    className="text-xs text-white/40 font-medium tracking-wide px-2 py-0.5 rounded-md bg-white/4 border border-white/6"
+                    className="text-sm text-white/60 font-medium tracking-wide px-2 py-0.5 rounded-md bg-white/4 border border-white/6"
                   >
                     {skill}
                   </span>

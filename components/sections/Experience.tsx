@@ -9,6 +9,21 @@ import MacWindow from "@/components/ui/MacWindow";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Icon from "@/components/ui/Icon";
 
+// Numbers like "40%", "2 hrs" or "10 engineers" — bolded so skimmers catch the impact.
+const METRIC = /(~?\d+(?:\.\d+)?\+?\s?(?:%|hrs?\b|engineers\b))/g;
+
+function withMetrics(text: string) {
+  return text.split(METRIC).map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={part + i} className="font-semibold text-white">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function Experience() {
   return (
     <section id={SECTION_IDS.experience} className="py-12 px-4 sm:px-6">
@@ -73,15 +88,15 @@ export default function Experience() {
                           <Icon name="briefcase" size={16} label="Work experience" />
                         </div>
                         <div>
-                          <p className="text-sm font-semibold text-white">{exp.title}</p>
-                          <p className="text-xs text-blue-400 mt-0.5 font-medium">{exp.company}</p>
+                          <p className="text-base font-semibold text-white">{exp.title}</p>
+                          <p className="text-sm text-blue-400 mt-0.5 font-medium">{exp.company}</p>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <span className="inline-block px-2 py-1 rounded-lg bg-white/5 border border-white/8 text-xs text-white/50">
+                      <div className="sm:text-right">
+                        <span className="inline-block px-2 py-1 rounded-lg bg-white/5 border border-white/8 text-sm text-white/65">
                           {exp.duration}
                         </span>
-                        <p className="text-xs text-white/30 mt-1">{exp.location}</p>
+                        <p className="text-sm text-white/50 mt-1">{exp.location}</p>
                       </div>
                     </div>
 
@@ -90,10 +105,10 @@ export default function Experience() {
                       {exp.points.map((point) => (
                         <li
                           key={point.slice(0, 40)}
-                          className="flex gap-3 text-sm text-white/60 leading-relaxed"
+                          className="flex gap-3 text-sm sm:text-base text-white/75 leading-relaxed"
                         >
-                          <span className="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-blue-500/70" />
-                          {point}
+                          <span className="mt-2.5 w-1.5 h-1.5 shrink-0 rounded-full bg-blue-500/70" />
+                          <span>{withMetrics(point)}</span>
                         </li>
                       ))}
                     </ul>

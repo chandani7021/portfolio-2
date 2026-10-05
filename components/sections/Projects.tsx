@@ -9,6 +9,7 @@ import MacWindow from "@/components/ui/MacWindow";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Badge from "@/components/ui/Badge";
 import Icon from "@/components/ui/Icon";
+import DemoVideo from "@/components/ui/DemoVideo";
 
 const ACCENT_COLORS = [
   { card: "bg-blue-500/5", border: "border-blue-500/20", dot: "bg-blue-500/70", num: "text-blue-500/20" },
@@ -47,7 +48,7 @@ export default function Projects() {
                     >
                       <div className="flex flex-col h-full">
                         <div className="flex items-start justify-between mb-4">
-                          <h3 className="text-lg font-bold text-white leading-snug flex-1">
+                          <h3 className="text-xl font-bold text-white leading-snug flex-1">
                             {project.name}
                           </h3>
                           <span className={`text-5xl font-black ${accent.num} leading-none ml-2 select-none`}>
@@ -59,9 +60,9 @@ export default function Projects() {
                           {project.points.map((point, idx) => (
                             <li
                               key={point.slice(0, 40)}
-                              className={`flex gap-3 text-sm leading-relaxed ${idx === 0 ? "text-blue-300/90 font-medium" : "text-white/55"}`}
+                              className={`flex gap-3 text-sm sm:text-base leading-relaxed ${idx === 0 ? "text-blue-300/90 font-medium" : "text-white/75"}`}
                             >
-                              <span className={`mt-2 w-1.5 h-1.5 shrink-0 rounded-full ${accent.dot}`} />
+                              <span className={`mt-2.5 w-1.5 h-1.5 shrink-0 rounded-full ${accent.dot}`} />
                               {point}
                             </li>
                           ))}
@@ -73,7 +74,7 @@ export default function Projects() {
                           ))}
                         </div>
 
-                        {(project.github || project.live) && (
+                        {(project.github || project.live || project.demo) && (
                           <div className="flex items-center gap-4 pt-4 border-t border-white/6">
                             {project.github && (
                               <motion.a
@@ -82,7 +83,7 @@ export default function Projects() {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05, x: 2 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center gap-2 text-xs text-white/50 hover:text-white transition-colors"
+                                className="flex items-center gap-2 text-sm text-white/65 hover:text-white transition-colors"
                               >
                                 <Icon name="github" size={14} label="GitHub" />
                                 {VISIT_PROJECT_LABEL}
@@ -95,11 +96,18 @@ export default function Projects() {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05, x: 2 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center gap-2 text-xs text-blue-400 hover:text-blue-300 transition-colors"
+                                className="flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors"
                               >
                                 <Icon name="externalLink" size={14} label="Live demo" />
                                 {LIVE_DEMO_LABEL}
                               </motion.a>
+                            )}
+                            {project.demo && (
+                              <DemoVideo
+                                src={project.demo.video}
+                                poster={project.demo.poster}
+                                title={project.name}
+                              />
                             )}
                           </div>
                         )}
@@ -114,7 +122,7 @@ export default function Projects() {
           {/* Other Projects */}
           {projects.some(p => !p.featured) && (
             <div className="pt-8">
-              <h4 className="text-white/30 text-xs font-bold uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
+              <h4 className="text-white/50 text-sm font-bold uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
                 <span className="h-px bg-white/10 flex-1" />
                 Other Projects
                 <span className="h-px bg-white/10 flex-1" />
@@ -129,33 +137,33 @@ export default function Projects() {
                     className="group relative p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300"
                   >
                     <div className="flex justify-between items-start mb-3">
-                      <h5 className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors">
+                      <h5 className="text-base font-semibold text-white/85 group-hover:text-white transition-colors">
                         {project.name}
                       </h5>
                       <div className="flex gap-2">
                         {project.github && (
-                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/60 transition-colors">
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">
                             <Icon name="github" size={14} label="GitHub" />
                           </a>
                         )}
                         {project.live && (
-                          <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-blue-400 transition-colors">
+                          <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-blue-400 transition-colors">
                             <Icon name="externalLink" size={14} label="Live" />
                           </a>
                         )}
                       </div>
                     </div>
-                    <p className="text-xs text-white/40 leading-relaxed mb-4 line-clamp-2">
+                    <p className="text-sm text-white/65 leading-relaxed mb-4 line-clamp-3">
                       {project.points[0]}
                     </p>
                     <div className="flex flex-wrap gap-1.5 mt-auto">
                       {project.tech.slice(0, 3).map(t => (
-                        <span key={t} className="text-[10px] text-white/20 font-medium px-1.5 py-0.5 rounded-md border border-white/5">
+                        <span key={t} className="text-xs text-white/60 font-medium px-2 py-0.5 rounded-md border border-white/10">
                           {t}
                         </span>
                       ))}
                       {project.tech.length > 3 && (
-                        <span className="text-[10px] text-white/10 font-medium px-1.5 py-0.5">
+                        <span className="text-xs text-white/45 font-medium px-1.5 py-0.5">
                           +{project.tech.length - 3}
                         </span>
                       )}

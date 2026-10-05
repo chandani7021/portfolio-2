@@ -14,6 +14,7 @@ export interface Project {
   github?: string;
   live?: string;
   featured?: boolean;
+  demo?: { video: string; poster: string };
 }
 
 export interface Skill {

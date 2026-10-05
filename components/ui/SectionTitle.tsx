@@ -20,7 +20,7 @@ export default function SectionTitle({ title, subtitle, className = "" }: Sectio
     >
       <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{title}</h2>
       {subtitle && (
-        <p className="mt-1.5 text-sm text-white/40 tracking-wide">{subtitle}</p>
+        <p className="mt-1.5 text-base text-white/55 tracking-wide">{subtitle}</p>
       )}
       <motion.div
         initial={{ scaleX: 0, originX: 0 }}

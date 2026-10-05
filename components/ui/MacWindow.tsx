@@ -35,7 +35,7 @@ export default function MacWindow({
           className="w-3 h-3 rounded-full bg-[#28c840] border border-[#1dab2f] cursor-default"
         />
         {title && (
-          <span className="ml-3 text-xs text-white/40 font-medium tracking-wide select-none">
+          <span className="ml-3 text-xs text-white/50 truncate font-medium tracking-wide select-none">
             {title}
           </span>
         )}
